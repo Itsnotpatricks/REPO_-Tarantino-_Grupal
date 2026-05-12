@@ -1,7 +1,51 @@
-*{
+
+:root {
+    --pr-color: rgb(12, 11, 16);
+    --text-color-w: rgb(224, 191, 26);}
 
 
-    background-color: rgb(183, 15, 15);
-    color: rgb(226, 207, 34);
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+ header{
+   background-color: var(--pr-color);
+    color: var(--text-color-w);
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+a{
+text-decoration: none;
+color: var(--text-color-w);
+font: 1em sans-serif;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+
+#hero{
+
+padding: 20px;
+background-color:var(--text-color-w);
+height: calc(100vh - 65px);
+
+}
+
+#tarantino{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: calc(100vh - 65px);
+
+
+
 }
