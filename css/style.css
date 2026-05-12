@@ -21,12 +21,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 3;
+   
 }
 a{
 text-decoration: none;
 color: var(--text-color-w);
 font: 1em sans-serif;
 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 
 }
 
@@ -43,9 +46,39 @@ height: calc(100vh - 65px);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  height: calc(100vh - 65px);
+  height: calc(100vh - 6px);
+}
 
+#tarantino,img{
+ height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
 
+}
 
+#tarantino,video{
+
+position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+ 
+
+}
+
+main {
+    padding: 20px;
+    margin-top: 20px;
+}
+main,p {
+    margin-top: 4rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 5vh;
+    color: var(--text-color-w);
+    z-index: 8;
+   
 }
