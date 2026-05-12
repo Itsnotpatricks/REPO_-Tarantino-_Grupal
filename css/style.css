@@ -34,7 +34,7 @@ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 #hero{
 
 padding: 20px;
-background-color:var(--text-color-w);
+background-color:var(--pr-color);
 height: calc(100vh - 65px);
 
 }
