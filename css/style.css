@@ -11,6 +11,8 @@
     font-size: 18px;
 }
 
+
+
  header{
    background-color: var(--pr-color);
     color: var(--text-color-w);
@@ -22,6 +24,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 3;
+  
    
 }
 a{
@@ -48,38 +51,43 @@ height: calc(100vh - 65px);
     align-items: center;
     height: 100vh;
     position: relative;
+    shape-image-threshold: initial;
     z-index: 1;
 }
 
-#tarantino,img{
- height: 40vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 5;
 
+
+#tarantino img {
+    height: 50%;
+    position: relative;
+    z-index: 5;
 }
 
-#tarantino,video{
-
-position: fixed;
+#tarantino video {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     z-index: 2;
 
+
 }
+
+
 
 main {
    position: relative;
     z-index: 5;
+    background: black;
 
 }
 
 .quote {
+  height: auto;
+  width: auto;
+  display: block;
   padding: 80px 20px;
   text-align: center;
   background: black;
@@ -97,21 +105,48 @@ main {
 
 
 
+.carrusel{
+  
+  width: 80%;
+    max-width: 800px;
+    margin: auto;
+}
+.carrusel > div {
+    overflow: hidden;
+}
 
 
+.carrusel > div > div {
+    display: flex;
+    width: 900%;
+    animation: 5s slider infinite;
+}
 
+.carrusel figure {
+    width: 11.11%;
+}
+
+.carrusel > div > div > figure > img {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    align-content: center;
+    background-color: black;
+}
 
 
 
 footer {
+   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   padding: 60px;
-   background: black;
-  z-index: 8; 
+  background: black;
   border-top: 1px solid rgba(255,255,255,0.1);
 }
+
 
 
 .footer-column h3 {
@@ -120,8 +155,8 @@ footer {
   color: #ffffffcc;
 }
 
-.footer-column p,.footer-column a {
-  display: block;
+.footer-column p, .footer-column a {
+  display: flex;
   margin-bottom: 12px;
   color: #ffffffcc;
   text-decoration: none;
@@ -131,4 +166,10 @@ footer {
   display: flex;
   gap: 15px;
   margin-top: 20px;
+
 }
+
+
+
+
+
