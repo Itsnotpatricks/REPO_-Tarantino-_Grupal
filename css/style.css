@@ -89,11 +89,19 @@ main {
 .quote,blockquote{
   color:var(--text-color-w);
   font-family: Georgia, serif;
-  font-size: 15vh;
+  font-size: 5vh;
   font-weight: bold;
  
 
 }
+
+
+
+
+
+
+
+
 
 footer {
   display: grid;
