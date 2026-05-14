@@ -49,6 +49,7 @@ height: calc(100vh - 65px);
   display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     height: 100vh;
     position: relative;
     shape-image-threshold: initial;
@@ -64,7 +65,7 @@ height: calc(100vh - 65px);
 }
 
 #tarantino video {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -79,7 +80,7 @@ height: calc(100vh - 65px);
 
 main {
    position: relative;
-    z-index: 5;
+    z-index: 3;
     background: black;
 
 }
@@ -95,52 +96,126 @@ main {
 }
 
 .quote,blockquote{
-  color:var(--text-color-w);
-  font-family: Georgia, serif;
-  font-size: 5vh;
-  font-weight: bold;
- 
+   color: var(--text-color-w);
+    font-family: Georgia, serif;
+    font-size: clamp(1.2rem, 4vw, 3rem);
+    font-weight: bold;
+    line-height: 1.4;
 
 }
 
 
 
 .carrusel{
-  
-  width: 80%;
+    width: 80%;
     max-width: 800px;
     margin: auto;
 }
-.carrusel > div {
+
+.carrusel > div{
     overflow: hidden;
 }
 
-
-.carrusel > div > div {
+.carrusel > div > div{
     display: flex;
-    width: 900%;
-    animation: 5s slider infinite;
+    width: 500%;
+    animation: slider 30s infinite;
 }
 
-.carrusel figure {
-    width: 11.11%;
+.carrusel figure{
+    width: 20%; 
+    margin: 0;
+    flex-shrink: 0;
 }
 
-.carrusel > div > div > figure > img {
+.carrusel img{
     width: 100%;
-    height: 100%;
-    display: grid;
-    align-items: center;
-    align-content: center;
-    background-color: black;
+    display: block;
 }
+
+
+section,
+#modal {
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section > h1 {
+    margin: 1rem 0;
+}
+
+/* Maquetación del formulario */
+section > form {
+    width: 80%;
+    max-width: 500px;
+}
+
+section > form > label {
+    display: none;
+}
+
+section > form > input,
+section > form > select,
+section > form > p {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+}
+
+section > form > input[type=submit],
+#modal > div > button {
+    width: 10rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: teal 2px solid;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+section > form > input[type=submit]:hover,
+#modal > div > button:hover {
+    background-color: #008080;
+    color: white;
+}
+
+#modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(101, 86, 86, 0.8);
+    display: none;
+}
+
+#modal > div {
+    background-color: white;
+    padding: 2rem;
+}
+
+#modal > div > h2,
+#modal > div > ul > li,
+#modal > div > button {
+    margin: 0.5rem 0;
+}
+
+
+
+
+
+
 
 
 
 footer {
    width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  align-content: flex-end;
+  justify-content: space-around;
   gap: 40px;
   padding: 60px;
   background: black;
@@ -170,6 +245,32 @@ footer {
 }
 
 
+@keyframes slider {
+    0%   { transform: translateX(0); }
+    20%  { transform: translateX(0); }
+
+    25%  { transform: translateX(-20%); }
+    45%  { transform: translateX(-20%); }
+
+    50%  { transform: translateX(-40%); }
+    70%  { transform: translateX(-40%); }
+
+    75%  { transform: translateX(-60%); }
+    95%  { transform: translateX(-60%); }
+
+    100% { transform: translateX(-80%); }
 
 
+}@media screen and (max-width: 500px) {
+    section > h1 {
+        font-size: 1.5rem;
+    }
 
+    #modal > div > h2 {
+        font-size: 1.2rem;
+    }
+
+    #modal > div > ul > li {
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+
+        <a href="index.html">Tarantino Experience</a>
+        <a href="#">Menu</a>
+
+
+
+
+    </header>
+
+    <section>
+            <h1>Compra de entradas</h1>
+            <!-- Se añade la detección del evento Submit para llamar a la función comprar() cuando se pulse el botón -->
+            <form onsubmit="return comprar()">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" placeholder="Escribe tu correo" required>
+                <label for="exposicion">Exposición:</label>
+                <!-- Se llama a la función costeTotal() cuando hay cambios en la exposición seleccionada -->
+                <select id="exposicion" onchange="costeTotal()">
+                    <option value="e1">Exposición 1 - 8 €</option>
+                    <option value="e2">Exposición 2 - 10 €</option>
+                    <option value="e3">Exposición 3 - 15 €</option>
+                </select>
+                <label for="numero">Número de entradas:</label>
+                <!-- Se llama a la función costeTotal() cuando hay cambios en el número de entradas -->
+                <input type="number" id="numero" min="1" max="10" placeholder="Número de entradas" required onchange="costeTotal()">
+                <p>Coste total de las entradas: <span id="coste"></span></p>
+                <input type="submit" value="Comprar entradas">
+            </form>
+        </section>
+        <div id="modal">
+            <div>
+                <h2>La compra se ha realizado correctamente</h2>
+                <ul>
+                    <li>Nombre: <span id="nom"></span></li>
+                    <li>Correo electrónico: <span id="corr"></span></li>
+                    <li>Exposición: <span id="ex"></span></li>
+                    <li>Número de entradas: <span id="num"></span></li>
+                    <li>Coste total: <span id="ct"></span></li>
+                </ul>
+                <!-- Se llama a la función cerrarVentana() cuando se pulsa el botón -->
+                <button onclick="cerrarVentana()">Aceptar</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="footer-column">
+            <h3>Quentin Tarantino</h3>
+            <p>©2026 Quentin Tarantino</p>
+            <p>All rights reserved</p>
+            
+            <div class="socials">
+                <a href="#">FB</a>
+                <a href="#">IG</a>
+                <a href="#">TW</a>
+                <a href="#">YT</a>
+             </div>
+
+        </div>
+
+            <div class="footer-column">
+                <h3>Legal Notice</h3>
+                <a href="#">General Company Info</a>
+                <a href="#">Privacy Policy</a>
+                 <a href="#">Cookies Policy</a>
+
+        
+            </div>
+
+            <div class="footer-column">
+                 <h3>MENU</h3>
+                 <a href="#">About</a>
+                 <a href="#">Billboard</a>
+                  <a href="#">Tarantino E</a>
+                  <a href="entradas.html">Tickets</a>
+                  <a href="#">Shop</a>
+                  <a href="contacts.html">Contacts</a>
+            </div>
+
+
+
+
+     </footer>
+    
+</body>
+</html>
