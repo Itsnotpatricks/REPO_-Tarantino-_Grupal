@@ -5,13 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
      <link rel="stylesheet" href="css/style.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    
 </head>
 <body>
+    <script src="js/script.js"></script>
+    
 
     <header>
 
         <a href="index.html">Tarantino Experience</a>
-        <a href="#">Menu</a>
+       <i class="fa-solid fa-bars hamburguesa" onclick="openMenu()"></i>
+
+    <nav id="menu">
+      <!-- Cuando trabajamos con un menú desplegable, el icono hamburguesa será la primera opción del menú (por regla general) -->
+      <ul>
+        <li>
+          <a href="bio.html" onclick="closeMenu()">About</a>
+        </li>
+        <li>
+          <a href="movies.html" onclick="closeMenu()">Movies</a>
+        </li>
+        <li>
+          <a href="exp.html" onclick="closeMenu()">Tarantino Experience</a>
+        </li>
+        <li>
+          <a href="entradas.html" onclick="closeMenu()">Tickets</a>
+        </li>
+        <li>
+          <a href="shop.html" onclick="closeMenu()">Shop</a>
+        </li>
+        <li>
+          <a href="contacts.html" onclick="closeMenu()">Contact</a>
+        </li>
+      </ul>
+      <!-- Se incluye el icono para cerrar el menú, pero no es una de las opciones -->
+      <i class="fa-solid fa-times cerrar" onclick="closeMenu()"></i>
+    </nav>
 
 
 
