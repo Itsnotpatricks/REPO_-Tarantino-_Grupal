@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+      <meta charset="UTF-8">
+  <title>Ticket Website</title>
      <link rel="stylesheet" href="css/style.css">
       <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,7 +12,7 @@
     
 </head>
 <body>
-    <script src="js/script.js"></script>
+  
     
 
     <header>
@@ -20,7 +21,7 @@
        <i class="fa-solid fa-bars hamburguesa" onclick="openMenu()"></i>
 
     <nav id="menu">
-      <!-- Cuando trabajamos con un menú desplegable, el icono hamburguesa será la primera opción del menú (por regla general) -->
+      
       <ul>
         <li>
           <a href="bio.html" onclick="closeMenu()">About</a>
@@ -49,92 +50,107 @@
 
 
     </header>
+ <div class="ticket-cont">
 
-    <section>
-            <h1>Compra de entradas</h1>
-            <!-- Se añade la detección del evento Submit para llamar a la función comprar() cuando se pulse el botón -->
-            <form onsubmit="return comprar()">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
-                <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" placeholder="Escribe tu correo" required>
-                <label for="exposicion">Exposición:</label>
-                <!-- Se llama a la función costeTotal() cuando hay cambios en la exposición seleccionada -->
-                <select id="exposicion" onchange="costeTotal()">
-                    <option value="e1">Exposición 1 - 8 €</option>
-                    <option value="e2">Exposición 2 - 10 €</option>
-                    <option value="e3">Exposición 3 - 15 €</option>
-                </select>
-                <label for="numero">Número de entradas:</label>
-                <!-- Se llama a la función costeTotal() cuando hay cambios en el número de entradas -->
-                <input type="number" id="numero" min="1" max="10" placeholder="Número de entradas" required onchange="costeTotal()">
-                <p>Coste total de las entradas: <span id="coste"></span></p>
-                <input type="submit" value="Comprar entradas">
-            </form>
-        </section>
-        <div id="modal">
-            <div>
-                <h2>La compra se ha realizado correctamente</h2>
-                <ul>
-                    <li>Nombre: <span id="nom"></span></li>
-                    <li>Correo electrónico: <span id="corr"></span></li>
-                    <li>Exposición: <span id="ex"></span></li>
-                    <li>Número de entradas: <span id="num"></span></li>
-                    <li>Coste total: <span id="ct"></span></li>
-                </ul>
-                <!-- Se llama a la función cerrarVentana() cuando se pulsa el botón -->
-                <button onclick="cerrarVentana()">Aceptar</button>
-            </div>
-        </div>
+  <h1>Buy Your Ticket</h1>
 
+  <div class="tickets">
 
+    <div class="card">
+      <h2>Standard</h2>
+      <p>Basic Entry</p>
+      <h3>€25</h3>
+      <button onclick="selectTicket('Standard',25)">
+        Select
+      </button>
+    </div>
 
+    <div class="card deluxe">
+      <h2>Deluxe</h2>
+      <p>Better Seats </p>
+      <h3>€50</h3>
+      <button onclick="selectTicket('Deluxe',50)">
+        Select
+      </button>
+    </div>
 
+    <div class="card premium">
+      <h2>Premium</h2>
+      <p>VIP Access </p>
+      <h3>€80</h3>
+      <button onclick="selectTicket('Premium',80)">
+        Select
+      </button>
+    </div>
 
+  </div>
 
+  <div class="form-box">
 
+    <h2>Customer Information</h2>
 
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <input type="email" id="email" placeholder="Email">
 
+    <input type="number" id="ticketCount" placeholder="Number of Tickets" min="1" max="15">
 
+    <button onclick="buyTicket()">Buy Ticket</button>
 
-    <footer>
-        <div class="footer-column">
-            <h3>Quentin Tarantino</h3>
-            <p>©2026 Quentin Tarantino</p>
-            <p>All rights reserved</p>
-            
-            <div class="socials">
-                <a href="#">FB</a>
-                <a href="#">IG</a>
-                <a href="#">TW</a>
-                <a href="#">YT</a>
-             </div>
+  </div>
 
-        </div>
+  <div class="result">
+    <h2 id="message"></h2>
+  </div>
 
-            <div class="footer-column">
-                <h3>Legal Notice</h3>
-                <a href="#">General Company Info</a>
-                <a href="#">Privacy Policy</a>
-                 <a href="#">Cookies Policy</a>
+</div>
 
-        
-            </div>
+    
+<footer>
 
-            <div class="footer-column">
-                 <h3>MENU</h3>
-                 <a href="bio.html">About</a>
-                 <a href="movies.html">Movies</a>
-                  <a href="exp.html">Tarantino E</a>
-                  <a href="entradas.html">Tickets</a>
-                  <a href="shop.html">Shop</a>
-                  <a href="contacts.html">Contacts</a>
-            </div>
+  <div class="footer-column">
 
+    <h3>Quentin Tarantino</h3>
 
+    <p>©2026 Quentin Tarantino</p>
+    <p>All rights reserved</p>
 
+    <div class="socials">
 
-     </footer>
+      <a href="#">FB</a>
+      <a href="#">IG</a>
+      <a href="#">TW</a>
+      <a href="#">YT</a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-column">
+
+    <h3>Legal Notice</h3>
+
+    <a href="#">General Company Info</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Cookies Policy</a>
+
+  </div>
+
+  <div class="footer-column">
+
+    <h3>Menu</h3>
+
+    <a href="bio.html">About</a>
+    <a href="movies.html">Movies</a>
+    <a href="exp.html">Tarantino E.</a>
+    <a href="entradas.html">Tickets</a>
+    <a href="shop.html">Shop</a>
+    <a href="contacts.html">Contacts</a>
+
+  </div>
+
+</footer>
+       <script src="js/script.js"></script>
     
 </body>
 </html>
