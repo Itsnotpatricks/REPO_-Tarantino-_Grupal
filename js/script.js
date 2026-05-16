@@ -1,14 +1,4 @@
-/* =========================================================
-   MENU
-========================================================= */
 
-function openMenu() {
-  document.getElementById("menu").style.left = "0";
-}
-
-function closeMenu() {
-  document.getElementById("menu").style.left = "-100%";
-}
 
 
 /* =========================================================
@@ -217,4 +207,34 @@ dots.forEach(dot => {
     const i = dot.dataset.index;
     leftPanel.scrollTo({ top: i * leftPanel.clientHeight, behavior: "smooth" });
   });
+});
+/* =========================================================
+   script.js — Tarantino Experience
+   Menu: adds/removes class "open" on #menu
+   (panel slides from RIGHT via CSS: right: -320px → right: 0)
+========================================================= */
+
+function openMenu() {
+  document.getElementById('menu').classList.add('open');
+}
+
+function closeMenu() {
+  document.getElementById('menu').classList.remove('open');
+}
+
+/* Close menu when clicking outside of it */
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('menu');
+  const hamburger = document.querySelector('.hamburguesa');
+  if (!menu) return;
+  if (menu.classList.contains('open') &&
+      !menu.contains(e.target) &&
+      e.target !== hamburger) {
+    closeMenu();
+  }
+});
+
+/* Close on Escape key */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeMenu();
 });
