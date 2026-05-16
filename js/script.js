@@ -190,3 +190,31 @@ function buyTicket() {
 
 const cards = document.querySelectorAll(".movie-card");
 
+
+/* =========================================================
+BIOGRAPHY
+========================================================= */
+
+       const leftPanel = document.getElementById("aboutLeft");
+const dots = document.querySelectorAll(".dot");
+const images = document.querySelectorAll(".about-right img");
+
+function activate(i){
+  dots.forEach(d => d.classList.remove("active"));
+  images.forEach(img => img.classList.remove("active"));
+
+  if(dots[i]) dots[i].classList.add("active");
+  if(images[i]) images[i].classList.add("active");
+}
+
+leftPanel.addEventListener("scroll", () => {
+  const index = Math.round(leftPanel.scrollTop / leftPanel.clientHeight);
+  activate(index);
+});
+
+dots.forEach(dot => {
+  dot.addEventListener("click", () => {
+    const i = dot.dataset.index;
+    leftPanel.scrollTo({ top: i * leftPanel.clientHeight, behavior: "smooth" });
+  });
+});

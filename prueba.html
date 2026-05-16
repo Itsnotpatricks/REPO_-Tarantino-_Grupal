@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── CSS Variables ─────────────────────────────────────────── */
+    :root {
+      --bg:        #0d0d0d;
+      --surface:   #131313;
+      --red:       #c0392b;
+      --red-dark:  #922b21;
+      --gold:      #d4a017;
+      --white:     #f0ece4;
+      --muted:     #8a8276;
+      --border:    rgba(255,255,255,0.08);
+      --font-hero: Georgia, 'Times New Roman', serif;
+      --font-body: 'Source Serif 4', Georgia, serif;
+      --font-head: 'Playfair Display', serif;
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Browser tab label ─────────────────────────────────────── */
+    /* (handled by <title>) */
+
+    /* ── NAV ───────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 28px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-icon {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .nav-icon:hover { opacity: 1; }
+
+    .nav-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+    /* ── HERO TITLE ────────────────────────────────────────────── */
+    .hero-title {
+      text-align: center;
+      padding: 52px 20px 36px;
+    }
+    .hero-title h1 {
+      font-family: var(--font-hero);
+      font-size: clamp(52px, 14vw, 96px);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 0.92;
+      color: var(--red);
+      animation: fadeDown 0.9s ease both;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── IMAGE PLACEHOLDER utility ─────────────────────────────── */
+    .img-placeholder {
+      background: #1a1a1a;
+      border: 1.5px dashed rgba(192,57,43,0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+    }
+    .img-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 18px,
+        rgba(255,255,255,0.015) 18px,
+        rgba(255,255,255,0.015) 19px
+      );
+    }
+    .img-placeholder svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--red);
+      fill: none;
+      stroke-width: 1.2;
+      opacity: 0.55;
+    }
+    .img-placeholder span { position: relative; z-index: 1; }
+    .img-placeholder svg  { position: relative; z-index: 1; }
+
+    /* ── HERO IMAGE ─────────────────────────────────────────────── */
+    .hero-image-wrap {
+      padding: 0 28px 48px;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+    .hero-image-wrap .img-placeholder {
+      width: 100%;
+      height: 320px;
+      border-radius: 2px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── ABOUT SECTION ─────────────────────────────────────────── */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      padding: 0 28px 64px;
+      align-items: stretch;
+    }
+
+    .about-text {
+      display: flex;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 14px;
+      color: #ccc6bc;
+      line-height: 1.8;
+    }
+
+    .about-img {
+      height: 100%;
+    }
+
+    .about-img .img-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      border-radius: 2px;
+    }
+
+    /* ── SECTION LABEL ─────────────────────────────────────────── */
+    .section-label {
+      font-family: var(--font-hero);
+      letter-spacing: 0.18em;
+      font-size: 18px;
+      color: var(--white);
+      padding: 0 28px 20px;
+    }
+
+    /* ── LOCATION ──────────────────────────────────────────────── */
+    .location {
+      padding: 0 28px 64px;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .map-placeholder.img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 2px;
+    }
+
+    .location-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .location-info p {
+      font-size: 13px;
+      color: #c2bdb4;
+      line-height: 1.85;
+    }
+
+    .btn-tickets {
+      display: inline-block;
+      padding: 11px 26px;
+      border: 1.5px solid var(--white);
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+      width: fit-content;
+      text-decoration: none;
+    }
+    .btn-tickets:hover {
+      background: var(--white);
+      color: var(--bg);
+    }
+
+    /* ── FILM GALLERY ──────────────────────────────────────────── */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      margin-bottom: 0;
+    }
+
+    .gallery-item .img-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────────────── */
+  
+footer {
+  width: 100%;
+
+  margin-top: 100px;
+  padding: 80px 60px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 60px;
+
+  background: #000;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.footer-column h3 {
+  margin-bottom: 22px;
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.footer-column p,
+.footer-column a {
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 16px;
+  line-height: 2;
+
+  transition: 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: var(--text-color-w);
+
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   SOCIALS
+========================================================= */
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin-top: 22px;
+}
+
+.socials a {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+
+
+.socials a:hover {
+  background: var(--text-color-w);
+  color: #000;
+
+  border-color: var(--text-color-w);
+
+  transform: translateY(-3px);
+}
+
+
+    /* ── DECORATIVE DIVIDER ─────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--red-dark), transparent);
+      margin: 0 28px 48px;
+      opacity: 0.5;
+    }
+
+    /* ── SCROLL REVEAL ─────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .about { grid-template-columns: 1fr; }
+      .location-grid { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      footer { grid-template-columns: 1fr; gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ─────────────────────────────────────────── -->
+  <nav>
+    <!-- Search icon -->
+    <button class="nav-icon" aria-label="Buscar">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="10.5" cy="10.5" r="6.5"/>
+        <line x1="15.5" y1="15.5" x2="22" y2="22"/>
+      </svg>
+    </button>
+
+    <!-- Hamburger icon -->
+    <button class="nav-icon" aria-label="Menú">
+      <svg viewBox="0 0 24 24" stroke-linecap="round">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- ── HERO TITLE ──────────────────────────────────────────── -->
+  <section class="hero-title">
+    <h1>THE<br>EXPERIENCE</h1>
+  </section>
+
+  <!-- ── HERO IMAGE ─────────────────────────────────────────── -->
+  <div class="hero-image-wrap reveal">
+    <img src="ChatGPT Image May 15, 2026 at 06_02_19 PM.png"The Experience — Hero" style="width:100%;height:320px;object-fit:cover;border-radius:2px;display:block;" />
+  </div>
+
+  <!-- ── ABOUT ──────────────────────────────────────────────── -->
+  <section class="about reveal">
+    <div class="about-text">
+      <p>
+        Tarantino Experience is an immersive exhibition dedicated to the iconic world of
+        Quentin Tarantino. Through his most famous films, visual references, behind-the-scenes
+        facts, and selected short films, visitors will explore the style, storytelling, and
+        cinematic language that have made him one of the most influential directors of contemporary
+        cinema. This experience invites audiences to discover his creative universe in a deeper and
+        more engaging way, making it a unique cultural journey worth living at least once in a lifetime.
+      </p>
+    </div>
+    <div class="about-img">
+      <div class="img-placeholder">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <span>Imagen secundaria — Director</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── LOCATION ───────────────────────────────────────────── -->
+<section class="location reveal">
+    <p class="section-label">LOCATION</p>
+    <div class="location-grid">
+
+      <!-- Google Maps Embed (BIGGER) -->
+      <div class="map-placeholder" style="height: 520px;">
+        <iframe
+          src="https://www.google.com/maps?q=Victoria%20and%20Albert%20Museum%20Cromwell%20Rd%20London%20SW7%202RL&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0; border-radius: 16px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <!-- Info + button -->
+      <div class="location-info">
+        <p>
+          To attend the Tarantino Experience, please purchase your tickets directly through this
+          website. Once your reservation is confirmed, you will receive access to the exhibition
+          details and entry information. Next to this section, you will also find a map showing the
+          exact location of the exhibition, so you can easily plan your visit and arrive without
+          any inconvenience.
+        </p>
+
+        <div class="address-block">
+          <strong>Full address:</strong><br>
+          Victoria and Albert Museum<br>
+          Cromwell Road<br>
+          South Kensington<br>
+          London SW7 2RL<br>
+          United Kingdom
+        </div>
+
+        <a href="entradas.html" class="btn-tickets">Buy Tickets</a>
+      </div>
+
+    </div>
+</section>
+  <!-- ── FILM GALLERY ───────────────────────────────────────── -->
+  <div class="gallery reveal">
+    <div class="gallery-item">
+      <div class="img-placeholder">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="2"/>
+          <path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/>
+        </svg>
+        <span>Película 1</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="img-placeholder">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="2"/>
+          <path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/>
+        </svg>
+        <span>Película 2</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="img-placeholder">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="2"/>
+          <path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/>
+        </svg>
+        <span>Película 3</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="img-placeholder">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="2"/>
+          <path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/>
+        </svg>
+        <span>Película 4</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+   <footer>
+
+ 
+  <div class="footer-column">
+
+    <h3>Quentin Tarantino</h3>
+
+    <p>©2026 Quentin Tarantino</p>
+    <p>All rights reserved</p>
+
+    <div class="socials">
+
+      <a href="#">FB</a>
+      <a href="#">IG</a>
+      <a href="#">TW</a>
+      <a href="#">YT</a>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-column">
+
+    <h3>Legal Notice</h3>
+
+    <a href="#">General Company Info</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Cookies Policy</a>
+
+  </div>
+
+  <div class="footer-column">
+
+    <h3>Menu</h3>
+
+    <a href="#">About</a>
+    <a href="#">Movies</a>
+    <a href="#">Tarantino E.</a>
+    <a href="entradas.html">Tickets</a>
+    <a href="#">Shop</a>
+    <a href="contacts.html">Contacts</a>
+
+  </div>
+
+</footer>
+
+
+  <!-- ── SCROLL REVEAL SCRIPT ───────────────────────────────── -->
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── Simple hamburger toggle (placeholder behaviour) ── */
+    document.querySelectorAll('.nav-icon').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.style.opacity = btn.style.opacity === '0.4' ? '' : '0.4';
+        setTimeout(() => btn.style.opacity = '', 200);
+      });
+    });
+  </script>
+
+</body>
+</html>
