@@ -868,7 +868,19 @@ header {
   max-width: 1100px;
   margin: 0 auto;
 }
+.movie-info h1 {
 
+  color: var(--white);
+  font-size: 6vh;
+  font-weight: bold;
+}
+
+.movie-info h1:hover {
+  color: var(--gold);
+
+  font-size: 6vh;
+  font-weight: bold;
+}
 .info-top {
   display: flex;
   justify-content: space-between;
@@ -886,6 +898,8 @@ header {
 .info-left {
   flex: 1;
 }
+
+
 
 .meta-row {
   display: flex;
@@ -1143,6 +1157,8 @@ footer {
 }
 
 /* RESPONSIVE */
+
+
 @media (max-width: 768px) {
 
   .movie-poster-wrap {
@@ -1328,6 +1344,8 @@ button {
   text-transform: uppercase;
   padding: 12px 28px;
   transition: background 0.25s, color 0.25s, border-color 0.25s;
+
+  padding: 12px 28px;  
 }
 
 button:hover {
@@ -1380,6 +1398,91 @@ button:hover {
 }
 
 
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+.cal-label {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+.calendar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+.cal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  color: var(--white);
+  font-weight: bold;
+}
+.cal-header button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--white);
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.cal-header button:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.cal-days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.cal-day {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--white);
+  border-radius: 4px;
+  padding: 6px 0;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.cal-day:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.cal-day.cal-selected {
+  background: var(--red);
+  border-color: var(--red);
+}
+.cal-day.cal-disabled {
+  color: var(--muted);
+  opacity: 0.3;
+  cursor: default;
+  border-color: transparent;
+}
+#selectedDateText {
+  font-size: 13px;
+  color: var(--gold-light);
+  margin-top: 10px;
+  min-height: 20px;
+}
 /* =========================================================
    CONTACT PAGE
 ========================================================= */

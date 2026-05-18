@@ -429,3 +429,9 @@ const products = [
     window._cartCount = 0; window._cartTotal = 0;
     setTimeout(() => { bar.classList.remove('visible'); }, 3000);
   }
+
+
+
+
+
+
