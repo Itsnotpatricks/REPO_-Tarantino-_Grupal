@@ -357,3 +357,75 @@ const products = [
  
     // Init
     renderGrid(products);
+
+    // SHOP //
+
+    window.addEventListener('DOMContentLoaded', () => {
+    window._cartCount = 0;
+    window._cartTotal = 0;
+  });
+
+  function addToCart(btn, name, price) {
+    window._cartCount = (window._cartCount || 0) + 1;
+    window._cartTotal = (window._cartTotal || 0) + parseFloat(price);
+    btn.textContent = 'Added ✓';
+    btn.classList.add('added');
+    setTimeout(() => { btn.textContent = 'Add to Cart'; btn.classList.remove('added'); }, 1500);
+    document.getElementById('cartCount').textContent = window._cartCount;
+    document.getElementById('cartTotal').textContent = '€' + window._cartTotal.toFixed(2);
+    document.getElementById('cartBar').classList.add('visible');
+    const c = document.getElementById('shopConfirm');
+    c.textContent = '"' + name + '" added to your cart.';
+    setTimeout(() => { c.textContent = ''; }, 2500);
+  }
+
+  function filterProducts(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.classList.toggle('hidden', category !== 'all' && card.dataset.category !== category);
+    });
+  }
+
+  function checkout() {
+    if (!window._cartCount) return;
+    const bar = document.getElementById('cartBar');
+    bar.innerHTML = '<p style="font-family:\'Cormorant Garamond\',serif;font-style:italic;font-size:1.1rem;color:#c9a84c;text-align:center;width:100%;">Order placed. Expect the unexpected, you will recevie and Confirmation soon!— Q.T.</p>';
+    window._cartCount = 0; window._cartTotal = 0;
+    setTimeout(() => { bar.classList.remove('visible'); }, 3000);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    window._cartCount = 0;
+    window._cartTotal = 0;
+  });
+
+  function addToCart(btn, name, price) {
+    window._cartCount = (window._cartCount || 0) + 1;
+    window._cartTotal = (window._cartTotal || 0) + parseFloat(price);
+    btn.textContent = 'Added ✓';
+    btn.classList.add('added');
+    setTimeout(() => { btn.textContent = 'Add to Cart'; btn.classList.remove('added'); }, 1500);
+    document.getElementById('cartCount').textContent = window._cartCount;
+    document.getElementById('cartTotal').textContent = '€' + window._cartTotal.toFixed(2);
+    document.getElementById('cartBar').classList.add('visible');
+    const c = document.getElementById('shopConfirm');
+    c.textContent = '"' + name + '" added to your cart.';
+    setTimeout(() => { c.textContent = ''; }, 2500);
+  }
+
+  function filterProducts(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.classList.toggle('hidden', category !== 'all' && card.dataset.category !== category);
+    });
+  }
+
+  function checkout() {
+    if (!window._cartCount) return;
+    const bar = document.getElementById('cartBar');
+    bar.innerHTML = '<p style="font-family:\'Cormorant Garamond\',serif;font-style:italic;font-size:1.1rem;color:#c9a84c;text-align:center;width:100%;">Order placed. Expect the unexpected. — Q.T.</p>';
+    window._cartCount = 0; window._cartTotal = 0;
+    setTimeout(() => { bar.classList.remove('visible'); }, 3000);
+  }
