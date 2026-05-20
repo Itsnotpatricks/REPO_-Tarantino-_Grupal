@@ -9,16 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
   <style>
-    :root {
-      --bg:    #080808;
-      --red:   #b91c1c;
-      --gold:  #c9a84c;
-      --gold-l:#e8c97a;
-      --white: #f0ece4;
-      --muted: #7a7268;
-      --border:rgba(255,255,255,0.07);
-    }
-
+    
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
@@ -89,7 +80,6 @@
     }
     .cerrar:hover { color: var(--white); }
 
-    /* DOTS */
     .dots-nav {
       position: fixed; right: 1.6rem; top: 50%;
       transform: translateY(-50%);
@@ -104,7 +94,6 @@
     }
     .dot.active { background: var(--red); border-color: var(--red); transform: scale(1.4); }
 
-    /* WRAPPER */
     .about-wrapper {
       flex: 1;
       display: grid;
@@ -113,13 +102,11 @@
       overflow: hidden;
     }
 
-    /* LEFT PANEL */
     .about-left {
       position: relative;
       overflow: hidden;
     }
 
-    /* Track scrolls vertically — each child = panel height (set by JS) */
     .slides-track {
       position: absolute;
       top: 0; left: 0; right: 0;
@@ -220,7 +207,6 @@
       50%      { transform: translateX(-50%) translateY(6px); }
     }
 
-    /* RIGHT PANEL */
     .about-right {
       position: relative; overflow: hidden; background: #0a0a0a;
     }
@@ -265,7 +251,7 @@
     }
     .socials a:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ── MOBILE ──────────────────────────────────────────── */
+    /*  MOBILE */
     @media (max-width: 860px) {
       html, body { height: auto; overflow: auto; }
       body { display: block; overflow: auto; }
@@ -298,7 +284,6 @@
         transition: none;
       }
 
-      /* Mobile: hide all, show only .active */
       .text-block { display: none; height: auto !important; padding: 40px 28px; }
       .text-block.active { display: flex; }
 
@@ -497,26 +482,32 @@
 
     dots.forEach(d => d.addEventListener('click', () => moveTo(+d.dataset.index)));
 
-    /* Wheel on left panel (desktop only) */
-    left.addEventListener('wheel', e => {
-      if (mobile()) return;
-      e.preventDefault();
-      moveTo(e.deltaY > 0 ? cur + 1 : cur - 1);
-    }, { passive: false });
-
+   
     /* Keyboard */
     document.addEventListener('keydown', e => {
       if (e.key === 'ArrowDown') moveTo(cur + 1);
       if (e.key === 'ArrowUp')   moveTo(cur - 1);
     });
 
-    /* Touch swipe */
-    let ty = 0;
-    left.addEventListener('touchstart', e => { ty = e.touches[0].clientY; }, { passive: true });
-    left.addEventListener('touchend',   e => {
-      const dy = ty - e.changedTouches[0].clientY;
-      if (Math.abs(dy) > 40) moveTo(dy > 0 ? cur + 1 : cur - 1);
-    }, { passive: true });
+let accumulator = 0;
+
+left.addEventListener('wheel', e => {
+  if (mobile()) return;
+  e.preventDefault();
+  
+  if (locked) {
+    accumulator = 0;
+    return;
+  }
+  
+  accumulator += e.deltaY;
+  
+  if (Math.abs(accumulator) < 100) return;
+  
+  accumulator = 0;
+  moveTo(e.deltaY > 0 ? cur + 1 : cur - 1);
+  
+}, { passive: false });
   </script>
 
 </body>
