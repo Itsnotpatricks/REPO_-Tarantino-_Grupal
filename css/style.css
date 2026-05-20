@@ -1,7 +1,4 @@
-/* =========================================================
-   ROOT VARIABLES — Tarantino Experience
-   Paleta: Preto profundo · Vermelho sangue · Dourado queimado
-========================================================= */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&display=swap');
 
@@ -26,9 +23,7 @@
 }
 
 
-/* =========================================================
-   RESET
-========================================================= */
+
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -60,9 +55,7 @@ a {
 img { max-width: 100%; display: block; }
 
 
-/* =========================================================
-   GLOBAL TYPOGRAPHY
-========================================================= */
+
 
 h1, h2, h3 {
   font-family: var(--font-display);
@@ -76,9 +69,7 @@ blockquote, .quote blockquote, .quote p {
 }
 
 
-/* =========================================================
-   PAGE LAYOUT
-========================================================= */
+
 
 .page {
   width: 100%;
@@ -94,17 +85,6 @@ main {
   background: var(--bg);
 }
 
-
-
-
-
-
-
-
-
-/* =========================================================
-   HEADER
-========================================================= */
 .headerm {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -154,9 +134,7 @@ header > a:hover {
     .back-btn:hover { color: var(--white); }
 
 
-/* =========================================================
-   NAVIGATION MENU
-========================================================= */
+
 
 #menu {
   position: fixed;
@@ -504,6 +482,9 @@ header > a:hover {
 /* =========================================================
    BIOGRAPHY PAGE
 ========================================================= */
+
+
+
 
 .dots-nav {
   position: fixed;

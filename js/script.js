@@ -178,5 +178,5 @@ window.addEventListener("load", function () {
         setTimeout(() => loader.remove(), 1000);
       });
     });
-  }, 3000);
+  }, 1500);
 });
