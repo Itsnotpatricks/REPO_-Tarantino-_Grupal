@@ -431,9 +431,6 @@ header > a:hover {
 }
 
 
-/* =========================================================
-   CAROUSEL
-========================================================= */
 
 .carrusel {
   width: 80%;
@@ -464,9 +461,6 @@ header > a:hover {
 }
 
 
-/* =========================================================
-   BIOGRAPHY PAGE
-========================================================= */
 
 
 
@@ -634,11 +628,7 @@ header > a:hover {
 .about-right img.active {
   opacity: 1;
 }
-/* =========================================================
-MOVIES
-========================================================= */
 
-/* pulpfiction.css */
 
 :root {
   --bg: #080808;
@@ -650,7 +640,6 @@ MOVIES
   --border: rgba(255,255,255,0.07);
 }
 
-/* RESET */
 *,
 *::before,
 *::after {
@@ -676,7 +665,6 @@ img {
   display: block;
 }
 
-/* HEADER */
 header {
   position: fixed;
   top: 0;
@@ -726,7 +714,6 @@ header {
   color: var(--gold);
 }
 
-/* MENU */
 #menu {
   position: fixed;
   top: 0;
@@ -795,7 +782,6 @@ header {
   color: var(--white);
 }
 
-/* POSTER */
 .movie-poster-wrap {
   position: relative;
   width: 100%;
@@ -832,7 +818,6 @@ header {
   );
 }
 
-/* INFO SECTION */
 .movie-info {
   background: var(--bg);
 
@@ -867,7 +852,6 @@ header {
   border-bottom: 1px solid var(--border);
 }
 
-/* LEFT */
 .info-left {
   flex: 1;
 }
@@ -908,7 +892,6 @@ header {
   color: rgba(240,236,228,0.65);
 }
 
-/* TRAILER BUTTON */
 .trailer-btn {
   display: inline-block;
 
@@ -931,7 +914,6 @@ header {
   color: #080808;
 }
 
-/* CREDITS */
 .credits {
   flex-shrink: 0;
 flex-shrink: 0;
@@ -965,7 +947,6 @@ flex-shrink: 0;
   color: rgba(240,236,228,0.85);
 }
 
-/* CAST */
 .section-label {
   margin-bottom: 20px;
   margin-left: 15px;
@@ -982,7 +963,6 @@ flex-shrink: 0;
 .cast-grid {
   display: grid;
 
-  /* ⬆️ bigger squares */
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 
   gap: 1px;
@@ -996,10 +976,9 @@ flex-shrink: 0;
 .cast-item {
   background: var(--bg);
 
-  /* ⬆️ more space inside each square */
   padding: 28px 22px;
 
-  min-height: 140px; /* ensures more “square” feel */
+  min-height: 140px;
 
   transition: background 0.2s;
 }
@@ -1011,20 +990,19 @@ flex-shrink: 0;
 .cast-actor {
   margin-bottom: 6px;
 
-  font-size: 16px; /* bigger text */
+  font-size: 16px;
   font-weight: 600;
 
   color: var(--white);
 }
 
 .cast-character {
-  font-size: 12px; /* slightly bigger */
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 
   color: var(--muted);
 }
-/* QUOTE */
 .movie-quote {
   padding: 48px 0;
 
@@ -1055,7 +1033,6 @@ flex-shrink: 0;
   color: var(--muted);
 }
 
-/* FOOTER */
 footer {
   padding: 48px;
 
@@ -1129,7 +1106,6 @@ footer {
   color: var(--gold);
 }
 
-/* RESPONSIVE */
 
 
 @media (max-width: 768px) {
@@ -1169,9 +1145,6 @@ footer {
 }
 
 
-/* =========================================================
-   TICKETS PAGE
-========================================================= */
 
 .ticket-cont {
   text-align: center;
@@ -1302,9 +1275,6 @@ footer {
 }
 
 
-/* =========================================================
-   BUTTONS
-========================================================= */
 
 button {
   border: 1px solid var(--border);
@@ -1373,9 +1343,6 @@ button:hover {
 
 
 
-/* =========================================================
-   CALENDAR
-========================================================= */
 .cal-label {
   display: block;
   font-size: 13px;
@@ -1456,9 +1423,6 @@ button:hover {
   margin-top: 10px;
   min-height: 20px;
 }
-/* =========================================================
-   CONTACT PAGE
-========================================================= */
 
 .container-cont {
   display: flex;
@@ -1547,9 +1511,6 @@ textarea {
 }
 
 
-/* =========================================================
-   EXPERIENCE PAGE (exp.html)
-========================================================= */
 
 .exp-hero {
   min-height: calc(100vh - 57px);
@@ -1684,9 +1645,6 @@ textarea {
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
 
 footer {
   width: 100%;
@@ -1762,9 +1720,6 @@ footer {
 }
 
 
-/* =========================================================
-   ANIMATIONS
-========================================================= */
 
 @keyframes slider {
   0%, 6%    { transform: translateX(0); }
@@ -1799,9 +1754,6 @@ footer {
 }
 
 
-/* =========================================================
-   ICON / TOP BAR
-========================================================= */
 
 .icon {
   font-size: 24px;
@@ -1815,9 +1767,6 @@ footer {
 }
 
 
-/* =========================================================
-   RESPONSIVE — TABLET
-========================================================= */
 
 @media (max-width: 1024px) {
   body { font-size: 15px; }
@@ -1848,9 +1797,6 @@ footer {
 }
 
 
-/* =========================================================
-   RESPONSIVE — MOBILE
-========================================================= */
 
 @media (max-width: 768px) {
   header { padding: 14px 20px; }
@@ -1906,9 +1852,6 @@ footer {
 }
 
 
-/* =========================================================
-   RESPONSIVE — SMALL MOBILE
-========================================================= */
 
 @media (max-width: 480px) {
   .hamburguesa { font-size: 1.4rem; }
@@ -1929,9 +1872,6 @@ footer {
 
 
 
-/* =========================================================
-   SHOP PAGE
-========================================================= */
 
 .shop-hero {
   padding: 80px 48px 48px;
@@ -1955,7 +1895,6 @@ footer {
   text-transform: uppercase;
 }
 
-/* Filters */
 .shop-filters {
   display: flex;
   justify-content: center;
@@ -1987,7 +1926,6 @@ footer {
   border-bottom-color: var(--red);
 }
 
-/* Product grid */
 .shop-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -2005,7 +1943,6 @@ footer {
 .product-card:hover { background: #0d0d0d; }
 .product-card.hidden { display: none; }
 
-/* Product image */
 .product-img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -2041,7 +1978,6 @@ footer {
   z-index: 2;
 }
 
-/* Product info */
 .product-info {
   padding: 20px 24px 24px;
   border-top: 1px solid var(--border);
@@ -2104,7 +2040,6 @@ footer {
   border-color: #1a5c2e;
 }
 
-/* Confirm message */
 .shop-confirm {
   text-align: center;
   padding: 20px;
@@ -2115,7 +2050,6 @@ footer {
   min-height: 52px;
 }
 
-/* Cart bar */
 .cart-bar {
   position: fixed;
   bottom: 0; left: 0; right: 0;
@@ -2184,7 +2118,6 @@ footer {
 
 
 
-/* LOADER */
 #loader {
 
   position: fixed;
