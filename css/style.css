@@ -369,7 +369,7 @@ header > a:hover {
 
 
 .movie-grid {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 36px;
   margin-bottom: 90px;

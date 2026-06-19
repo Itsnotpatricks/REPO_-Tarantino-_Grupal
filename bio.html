@@ -421,93 +421,9 @@
       <a href="shop.html">Shop</a><a href="contacts.html">Contacts</a>
     </div>
   </footer>
-
+<script src="js/script.js"></script>
   <script>
-    /* NAV */
-    const menu = document.getElementById('menu');
-    document.getElementById('openBtn').onclick  = () => menu.classList.add('open');
-    document.getElementById('closeBtn').onclick = closeNav;
-    function closeNav() { menu.classList.remove('open'); }
 
-    /* SLIDE ENGINE */
-    const TOTAL = 5;
-    let cur = 0, locked = false;
-
-    const left  = document.getElementById('aboutLeft');
-    const track = document.getElementById('track');
-    const dots  = document.querySelectorAll('.dot');
-    const imgs  = document.querySelectorAll('.about-right img');
-    const curEl = document.getElementById('cur');
-    const hint  = document.getElementById('hint');
-    const blocks = document.querySelectorAll('.text-block');
-
-    const mobile = () => window.innerWidth <= 860;
-
-    function setHeights() {
-      if (mobile()) {
-        blocks.forEach(b => b.style.height = '');
-        return;
-      }
-      const h = left.clientHeight;
-      blocks.forEach(b => b.style.height = h + 'px');
-    }
-
-    function moveTo(idx) {
-      if (idx < 0 || idx >= TOTAL || idx === cur || locked) return;
-      locked = true;
-      cur = idx;
-
-      if (mobile()) {
-        blocks.forEach((b, i) => b.classList.toggle('active', i === cur));
-        track.style.transform = 'none';
-      } else {
-        const h = left.clientHeight;
-        track.style.transform = `translateY(${-cur * h}px)`;
-      }
-
-      imgs.forEach(img  => img.classList.toggle('active', +img.dataset.index === cur));
-      dots.forEach(d    => d.classList.toggle('active',   +d.dataset.index   === cur));
-      curEl.textContent = String(cur + 1).padStart(2, '0');
-      hint.classList.toggle('gone', cur > 0);
-
-      setTimeout(() => { locked = false; }, 700);
-    }
-
-    window.addEventListener('load', () => { setHeights(); });
-    window.addEventListener('resize', () => {
-      setHeights();
-      if (!mobile()) track.style.transform = `translateY(${-cur * left.clientHeight}px)`;
-      else           track.style.transform = 'none';
-    });
-
-    dots.forEach(d => d.addEventListener('click', () => moveTo(+d.dataset.index)));
-
-   
-    /* Keyboard */
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowDown') moveTo(cur + 1);
-      if (e.key === 'ArrowUp')   moveTo(cur - 1);
-    });
-
-let accumulator = 0;
-
-left.addEventListener('wheel', e => {
-  if (mobile()) return;
-  e.preventDefault();
-  
-  if (locked) {
-    accumulator = 0;
-    return;
-  }
-  
-  accumulator += e.deltaY;
-  
-  if (Math.abs(accumulator) < 100) return;
-  
-  accumulator = 0;
-  moveTo(e.deltaY > 0 ? cur + 1 : cur - 1);
-  
-}, { passive: false });
   </script>
 
 </body>
